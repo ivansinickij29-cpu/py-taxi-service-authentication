@@ -15,11 +15,10 @@ class Manufacturer(models.Model):
 
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
-    ordering = ["name"]
-
     class Meta:
         verbose_name = "driver"
-        verbose_name_plural = "drivers"
+        ordering = ["username"]  # <-- всередині Meta
+
 
     def __str__(self):
         return f"{self.username} ({self.first_name} {self.last_name})"
